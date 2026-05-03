@@ -1,0 +1,338 @@
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 31px 10px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 72% 13%, rgba(66, 219, 215, 0.3), transparent 30%),
+    radial-gradient(circle at 76% 74%, rgba(60, 249, 240, 0.2), transparent 32%),
+    linear-gradient(90deg, #1e232c 0%, #242b35 18%, #243742 100%);
+}
+
+.assistant-panel {
+  position: relative;
+  width: min(733px, calc(100vw - 28px));
+  min-height: 606px;
+  padding: 31px 28px 26px;
+  border: 2px solid rgba(174, 226, 242, 0.86);
+  border-radius: 18px;
+  background:
+    linear-gradient(112deg, rgba(62, 79, 83, 0.83), rgba(34, 58, 68, 0.75)),
+    rgba(58, 67, 72, 0.72);
+  box-shadow:
+    0 0 34px rgba(93, 225, 234, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -45px 80px rgba(25, 25, 34, 0.72);
+}
+
+.assistant-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 79% 19%, rgba(145, 241, 227, 0.13), transparent 42%),
+    radial-gradient(circle at 18% 96%, rgba(105, 214, 245, 0.16), transparent 29%);
+}
+
+.panel-scrollbar {
+  position: absolute;
+  top: 35px;
+  right: 14px;
+  width: 5px;
+  height: 493px;
+  border-radius: 999px;
+  background: rgba(229, 244, 242, 0.58);
+}
+
+h1 {
+  position: relative;
+  margin: 0;
+  color: #f3dfbd;
+  font-size: clamp(2rem, 4.25vw, 2.55rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.subtitle {
+  position: relative;
+  margin: 13px 0 31px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 18px;
+}
+
+.api-label {
+  position: relative;
+  display: block;
+  margin-bottom: 12px;
+  color: #fff5de;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.api-input {
+  position: relative;
+  width: 100%;
+  height: 47px;
+  padding: 0 14px;
+  color: #ffffff;
+  border: 2px solid rgba(71, 229, 233, 0.75);
+  border-radius: 12px;
+  outline: none;
+  background: rgba(72, 86, 88, 0.72);
+  box-shadow:
+    0 0 12px rgba(53, 245, 241, 0.64),
+    inset 0 2px 7px rgba(0, 0, 0, 0.24);
+}
+
+.api-input::placeholder {
+  color: rgba(238, 238, 238, 0.78);
+}
+
+.controls {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  margin: 13px 0 15px;
+}
+
+.controls button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 9px;
+  color: #ffffff;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    filter 140ms ease;
+}
+
+.controls button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.controls button:disabled {
+  cursor: default;
+  opacity: 0.75;
+  transform: none;
+}
+
+.start-button {
+  min-width: 120px;
+  padding: 0 16px;
+  background: linear-gradient(180deg, #04881a, #036b16);
+  box-shadow: 0 0 16px rgba(0, 209, 44, 0.55);
+}
+
+.stop-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 90px;
+  padding: 0 17px;
+  background: linear-gradient(180deg, #e34848, #b83335);
+  box-shadow: 0 0 15px rgba(239, 75, 79, 0.48);
+}
+
+.stop-icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.speech-card,
+.response-card {
+  position: relative;
+  border: 1px solid rgba(215, 229, 230, 0.18);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.speech-card {
+  min-height: 106px;
+  padding: 25px 16px 14px;
+  background: rgba(48, 57, 64, 0.72);
+  box-shadow:
+    inset 0 1px 10px rgba(255, 255, 255, 0.04),
+    0 0 14px rgba(75, 85, 97, 0.22);
+}
+
+.speech-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.speech-row p {
+  margin: 0;
+  color: rgba(255, 249, 234, 0.94);
+  font-size: 17px;
+}
+
+.speech-row.second {
+  margin-top: 17px;
+}
+
+.speech-row .urdu-line {
+  color: rgba(255, 249, 234, 0.94);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.translated-line {
+  text-align: right;
+  color: #9bd9ff !important;
+}
+
+.response-card {
+  min-height: 105px;
+  margin-top: 16px;
+  padding: 26px 16px 13px;
+  background: linear-gradient(180deg, rgba(27, 29, 65, 0.95), rgba(23, 25, 54, 0.98));
+  border-color: rgba(122, 134, 246, 0.62);
+  box-shadow:
+    0 0 18px rgba(102, 107, 241, 0.72),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.response-card h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 18px;
+  color: #fff5e8;
+  font-size: 17px;
+}
+
+.response-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #5ce9e7;
+  font-size: 18px;
+}
+
+.wave {
+  position: absolute;
+  top: 16px;
+  left: 43%;
+  width: 47%;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  opacity: 0.38;
+}
+
+.wave span {
+  width: 2px;
+  height: calc(7px + (var(--i) % 11) * 2px);
+  border-radius: 999px;
+  background: linear-gradient(180deg, transparent, #a7f5ee 45%, transparent);
+  filter: blur(0.25px);
+  animation: pulse 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -45ms);
+}
+
+.status-line {
+  position: relative;
+  margin: 32px 0 0;
+  color: #fff4e3;
+  font-size: 17px;
+}
+
+.status {
+  color: #4dff78;
+  font-weight: 700;
+}
+
+.status.listening {
+  color: #5df4ee;
+}
+
+.status-bars {
+  display: inline-flex;
+  align-items: end;
+  gap: 2px;
+  margin-left: 7px;
+  height: 13px;
+}
+
+.status-bars i {
+  width: 3px;
+  border-radius: 3px;
+  background: #58ff79;
+  animation: bar 900ms ease-in-out infinite;
+}
+
+.status-bars i:nth-child(1) {
+  height: 5px;
+}
+
+.status-bars i:nth-child(2) {
+  height: 9px;
+  animation-delay: 120ms;
+}
+
+.status-bars i:nth-child(3) {
+  height: 7px;
+  animation-delay: 240ms;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+    opacity: 0.18;
+  }
+
+  50% {
+    transform: scaleY(1.35);
+    opacity: 0.82;
+  }
+}
+
+@keyframes bar {
+  50% {
+    transform: scaleY(0.55);
+  }
+}
+
+@media (max-width: 620px) {
+  .page-shell {
+    align-items: start;
+    padding-top: 18px;
+  }
+
+  .assistant-panel {
+    min-height: auto;
+    padding: 25px 18px 24px;
+  }
+
+  .panel-scrollbar {
+    right: 8px;
+    height: calc(100% - 72px);
+  }
+
+  .speech-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .translated-line {
+    text-align: left;
+  }
+
+  .wave {
+    left: 24%;
+    width: 70%;
+  }
+}
